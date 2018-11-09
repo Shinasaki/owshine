@@ -11,6 +11,7 @@ import store from './store/main';
 import VueLazyLoad from 'vue-lazyload';
 
 import '@scss/app.scss';
+import 'bootstrap/dist/css/bootstrap.css'
 
 
 Vue.config.productionTip = false
