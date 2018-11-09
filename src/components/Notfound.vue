@@ -1,12 +1,12 @@
 <template>
-  <div id="app">
-    <router-view name="body" />
+  <div class="notfound-template">
+    404 NOTFOUND
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+
 }
 </script>
 

@@ -1,14 +1,15 @@
 <template>
-  <div id="app">
-    <router-view name="body" />
+  <div class="landing-template">
+    Landing
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+
 }
 </script>
 
 <style>
+
 </style>
