@@ -50,6 +50,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 export default {
   name: 'section1',
   data() {
@@ -64,9 +65,6 @@ export default {
         'OW SH',
         'OW SHI',
         'OW SHIN',
-        'OW SHINE',
-        'OW SHINE',
-        'OW SHINE',
         'OW SHINE',
         'OW SHINE',
         'OW SHINE',
@@ -105,6 +103,7 @@ export default {
     }
   },
   methods: {
+    ...mapActions(['getProfileByTag']),
     animateTag(index, data, delay) {
       if (this.tag == null) return
       const _this = this;
@@ -124,12 +123,21 @@ export default {
     },
     submit() {
       if (!this.submitTrigger) return;
-      const submitData = this.tag;
+      const submitData = this.tag.replace('#', '-');
       this.submitAction = true;
+
+      this.getProfileByTag(submitData).then(resp => {
+        console.log(resp);
+        if (resp.status == 200) {
+          console.log('do something');
+        }
+
+        this.submitAction = false;
+      })
     }
   },
   mounted() {
-    this.animateTag(0, this.animateText, 80);
+    this.animateTag(0, this.animateText, 50);
   }
 }
 </script>

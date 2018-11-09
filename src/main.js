@@ -14,6 +14,18 @@ import '@scss/app.scss';
 import 'bootstrap/dist/css/bootstrap.css'
 
 
+
+Vue.use(BootstrapVue);
+Vue.use(VueResource);
+Vue.use(VeeValidate);
+Vue.use(VueSweetalert2);
+Vue.use(VueLazyLoad, {
+  preLoad: 1.3,
+  loading: '../static/images/lazy/lazyload.svg',
+  attempt: 1
+});
+
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
