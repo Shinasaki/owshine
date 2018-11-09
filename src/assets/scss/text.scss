@@ -1,57 +1,9 @@
-// $dark1: #363349;
-// $dark2: #404149;
-// $dark3: #555555;
-// $gray1: #757575;
-// $gray2: #c1c1c1;
-// $gray3: #d8d8d8;
-// $white1: #ffffff;
-// $white2: #f6f6f6;
-// $white3: #f2f2f2;
-// $white4: #E9E9E9;
-// $orange1: #ee9b5c;
-// $orange2: #f4c676;
-// $orange3: #f4f4b3;
-// $red1: #e17769;
-// $red2: #ef476f;
-// $red3: #E2473B;
-// $red4: #D44638;
-// $blue1: #2d93a5;
-// $blue2: #3b5998;
-// $green1: #378a5d;
-//
-// Color set
-//
-// $colours: "dark1"#363349,
-// "dark2"#404149,
-// "gray1"#757575,
-// "gray2"#c1c1c1,
-// "gray3"#d8d8d8,
-// "white1"#ffffff,
-// "white2"#f6f6f6,
-// "white3"#f2f2f2,
-// "orange1"#ee9b5c,
-// "orange2"#f4c676,
-// "red1"#e17769,
-// "red2"#ef476f,
-// "red3"#E2473B,
-// "red4"#D44638,
-// "blue1"#2d93a5,
-// "blue2"#3b5998,
-// "green1"#378a5d;
+* {
+  font-family: 'Roboto', sans-serif;
+  color: $dark1;
+}
 
-//
-// Generate Color Class
-//
-// @each $i in $colours {
-//   .bg-#{nth($i, 1)} {
-//     background: nth($i, 2) !important;
-//   }
-
-//   .color-#{nth($i, 1)} {
-//     color: nth($i, 2) !important;
-//   }
-
-//   .border-#{nth($i, 1)} {
-//     border: 1px solid nth($i, 2) !important;
-//   }
-// }
+@font-face {
+  font-family: 'bignoodletoo';
+  src: url('~@fonts/bignoodletoo.ttf')
+}

@@ -3,4 +3,84 @@
   background-position: center;
   background-size: cover;
   min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .brand {
+      text-align: center;
+
+      span {
+        font-family: 'bignoodletoo', 'Roboto', sans-serif !important;
+        position: relative;
+
+        input {
+          height: 100%;
+          font-weight: 800;
+          text-align: center;
+          font-size: 70px;
+          letter-spacing: 20px;
+          background: none;
+          border: none;
+          border-bottom: 5px solid $orange1;
+          transition: box-shadow 0.3s ease-out, padding 0.3s ease-out, font-size 0.3s ease-out;
+
+          &:focus {
+            padding: 10px 3px;
+            outline: none;
+            box-shadow: 0 3px 0 $dark1;
+          }
+
+          &::placeholder {
+            color: $gray1;
+          }
+
+          &.submit-action {
+            padding-top: 10px;
+            font-size: 30px;
+            width: 100%;
+          }
+        }
+      }
+
+
+      .menu {
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding-top: 10px;
+        font-weight: 400;
+        text-align: center;
+        border-bottom: none;
+
+        &>div {
+          text-align: center;
+          margin: 5px 35px;
+          cursor: pointer;
+          letter-spacing: 4px;
+          font-family: 'bignoodletoo', 'Roboto', sans-serif !important;
+          transition: transform 0.3s ease-out, border-bottom 0.3s ease-out;
+
+          &:hover {
+            transform: translateY(-2px);
+            // border-bottom: 1px solid $dark2;
+          }
+        }
+
+        i {
+          color: $orange1 !important;
+          text-shadow: 0 0 1px 1px $dark1;
+        }
+
+      }
+    }
+  }
+
 }

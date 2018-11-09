@@ -1,6 +1,7 @@
 <template>
   <div class="landing-template">
-    <section1></section1>
+    <section1>
+    </section1>
   </div>
 </template>
 

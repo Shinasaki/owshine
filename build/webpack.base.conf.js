@@ -29,6 +29,7 @@ module.exports = {
       '@component': resolve('src/components'),
       '@scss': resolve('src/assets/scss'),
       '@images': resolve('src/assets/images'),
+      '@fonts': resolve('src/assets/fonts')
     }
   },
   module: {
