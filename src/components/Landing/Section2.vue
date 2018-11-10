@@ -6,17 +6,17 @@
           <span>THAILAND TOP 100</span>
         </div>
         <div class="col-12 text-center">
-          <p>ALL DATA: <b class="color-orange1">{{ countPlayerData }}</b> PLAYER</p>
+          <p>ALL DATA: <b class="color-orange1" v-if="countPlayerData">{{ countPlayerData }}</b> PLAYER</p>
 
         </div>
         <div class="col-12 text-center mb-2">
-          <p>HAVE RANK: <b class="color-orange1">{{ countPlayerRankingData }}</b> PLAYER</p>
+          <p>HAVE RANK: <b class="color-orange1" v-if="countPlayerRankingData">{{ countPlayerRankingData }}</b> PLAYER</p>
 
         </div>
         <div class="col-12 mb-4">
           <hr>
         </div>
-        <div class="col-12 item" v-for="(items, count) in playerRankingData" :key="items._id">
+        <div class="col-12 item" v-for="(items, count) in playerRankingData" :key="items._id" v-if="playerRankingData">
           <div class="row m-0">
             <div class="col-2 col-md-1">
               {{ count + 1 }}

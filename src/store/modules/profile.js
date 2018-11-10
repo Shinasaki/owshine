@@ -28,7 +28,7 @@ const mutations = {
   playerRankingUpdate(state, data) {
     state.playerRanking = data;
   },
-  countPlayerRakingUpdate(state, data) {
+  countPlayerRankingUpdate(state, data) {
     state.countPlayerRanking = data;
   },
   countPlayerUpdate(state, data) {
@@ -37,7 +37,9 @@ const mutations = {
 };
 
 const actions = {
-  getProfileByTag({ commit }, data) {
+  getProfileByTag({
+    commit
+  }, data) {
     return new Promise((resolve, reject) => {
       // clear profile data
       commit("profileUpdate", null);
@@ -60,7 +62,9 @@ const actions = {
     });
   },
 
-  getPlayerRanking({ commit }, data) {
+  getPlayerRanking({
+    commit
+  }, data) {
     return new Promise((resolve, reject) => {
       // clear profile data
       commit("playerRankingUpdate", null);
@@ -78,33 +82,42 @@ const actions = {
       );
     });
   },
-  countPlayer({ commit }) {
-    commit("countPlayerUpdate", 0);
+  countPlayer({
+    commit
+  }) {
+    return new Promise((resolve, reject) => {
+      commit("countPlayerUpdate", 0);
 
-    Vue.http.get("http://localhost:5000/v1/player/count").then(
-      resp => {
-        commit("countPlayerUpdate", resp.body.message);
-        return resolve(resp);
-      },
-      err => {
-        commit("countPlayerUpdate", 0);
-        return reject(err);
-      }
-    );
+      Vue.http.get("http://localhost:5000/v1/player/count").then(
+        resp => {
+          commit("countPlayerUpdate", resp.body.message);
+          return resolve(resp);
+        },
+        err => {
+          commit("countPlayerUpdate", 0);
+          return reject(err);
+        }
+      );
+    });
   },
-  countPlayerRanking({ commit }) {
-    commit("countPlayerRankingUpdate", 0);
+  countPlayerRanking({
+    commit
+  }) {
 
-    Vue.http.get("http://localhost:5000/v1/player/count/rank").then(
-      resp => {
-        commit("countPlayerRakingUpdate", resp.body.message);
-        return resolve(resp);
-      },
-      err => {
-        commit("countPlayerRankingUpdate", 0);
-        return reject(err);
-      }
-    );
+    return new Promise((resolve, reject) => {
+      commit("countPlayerRankingUpdate", 0);
+
+      Vue.http.get("http://localhost:5000/v1/player/count/rank").then(
+        resp => {
+          commit("countPlayerRankingUpdate", resp.body.message);
+          return resolve(resp);
+        },
+        err => {
+          commit("countPlayerRankingUpdate", 0);
+          return reject(err);
+        }
+      );
+    });
   }
 };
 
