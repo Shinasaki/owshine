@@ -15,7 +15,8 @@
     .brand {
       text-align: center;
 
-      span {
+      span,
+      b {
         font-family: 'bignoodletoo', 'Roboto', sans-serif !important;
         position: relative;
 
@@ -24,11 +25,11 @@
           font-weight: 800;
           text-align: center;
           font-size: 70px;
-          letter-spacing: 20px;
+          letter-spacing: 10px;
           background: none;
           border: none;
           border-bottom: 5px solid $orange1;
-          transition: box-shadow 0.3s ease-out, padding 0.3s ease-out, font-size 0.3s ease-out;
+          transition: all 0.3s ease-in-out;
 
           &:focus {
             padding: 10px 3px;
@@ -79,6 +80,41 @@
           text-shadow: 0 0 1px 1px $dark1;
         }
 
+      }
+    }
+  }
+
+  .profile-stat {
+
+
+    .profile-img {
+      margin-top: 30px;
+
+      img {
+        border: 10px solid $dark1;
+        box-shadow: inset 0 1px 3px 2px $dark2 !important;
+      }
+    }
+
+    .profile-ranking {
+      font-size: 25px;
+      margin-top: 10px;
+      letter-spacing: 1.5px;
+
+      span {}
+
+      b {
+        color: $orange1;
+      }
+    }
+
+
+    .profile-sr {
+      font-size: 20px;
+
+      span {
+        color: $dark3;
+        letter-spacing: 5px;
       }
     }
   }

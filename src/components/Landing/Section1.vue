@@ -44,13 +44,36 @@
             <input type="text" v-model="tag" placeholder="YOUR TAG" :class="{'submit-action' : submitAction}" required>
           </span>
         </form>
+        <transition name="fade">
+          <div key="show" class="profile-stat" :class="{'submit-action' : profileAction}" v-if="profileData">
+            <div class="row m-0">
+              <div class="col-12 profile-img">
+                <img :src="profileData.profile.portrait">
+              </div>
+              <div class="col-12 profile-ranking">
+                <span v-if="profileData.ranking != 'unrank'">
+                  RANKING:
+                </span>
+                <span>
+                  <b>{{ profileData.ranking }}</b>
+                </span>
+                <span v-if="profileData.ranking != 'unrank'">
+                  / <b>{{ profileData.count }}</b>
+                </span>
+              </div>
+              <div class="col-12 profile-sr">
+                <span>{{ profileData.profile.rating }} SR</span>
+              </div>
+            </div>
+          </div>
+        </transition>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 export default {
   name: 'section1',
   data() {
@@ -99,7 +122,9 @@ export default {
         ''
       ],
       submitTrigger: false,
-      submitAction: false
+      submitAction: false,
+      profileAction: false,
+      profile: null
     }
   },
   methods: {
@@ -125,22 +150,57 @@ export default {
       if (!this.submitTrigger) return;
       const submitData = this.tag.replace('#', '-');
       this.submitAction = true;
+      this.profileAction = false;
 
-      this.getProfileByTag(submitData).then(resp => {
-        console.log(resp);
-        if (resp.status == 200) {
-          console.log('do something');
-        }
+      this.getProfileByTag(submitData).then(resp => { // success
 
+        this.profileAction = true;
+        // if (resp.status == 200) {
+        //   this.profileAction = true;
+        // }
+
+        // disable animate
         this.submitAction = false;
+
+      }, err => {
+
+        // show message & disable animate
+        this.$swal({type: 'warning', title: 'Player Notfound.'});
+        this.submitAction = false;
+
       })
     }
   },
   mounted() {
-    this.animateTag(0, this.animateText, 50);
+    this.animateTag(0, this.animateText, 100);
+  },
+  computed: {
+    ...mapGetters(['profileData'])
   }
 }
 </script>
 
 <style>
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.3s ease-in-out;
+}
+
+.fade-enter-active img,
+.fade-leave-active img {
+  width: 148px;
+  height: 148px;
+  transition: all 0.3s ease-in-out;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.fade-enter img,
+.fade-leave-to img {
+  width: 0;
+  height: 0;
+}
 </style>
